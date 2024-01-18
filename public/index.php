@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\image;
+use App\Models\User;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
@@ -32,8 +34,10 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 */
 
 require __DIR__.'/../vendor/autoload.php';
+$image= new image;
+$user= new User;
 
-/*
+/*se
 |--------------------------------------------------------------------------
 | Run The Application
 |--------------------------------------------------------------------------
