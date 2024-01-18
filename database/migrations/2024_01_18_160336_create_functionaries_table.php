@@ -16,16 +16,16 @@ return new class extends Migration
             $table->string('surnames',45);
             $table->string('names',45);
             $table->integer('age');
+            $table->enum('gender',[1,2]);
             $table->integer('identity_document');
             $table->integer('credential');
-    
             $table->date('start_date');
             $table->date('end_date');
             $table->foreignId('promo_id')->constrained();
             $table->foreignId('status_id')->constrained();
             $table->foreignId('rank_id')->constrained();
             $table->foreignId('dependency_id')->constrained();
-            $table->foreignId('gender_id')->constrained();
+    
         });
     }
 
