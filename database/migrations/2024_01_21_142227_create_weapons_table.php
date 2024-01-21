@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('weapons', function (Blueprint $table) {
-            $table->foreingId('functionary_id')->constrained();
-            $table->string('weapon_tyoe',45);
+            $table->foreignId('functionary_id')->constrained();
+            $table->string('weapon_type',45);
             $table->string('weapon_serial',45);
             $table->string('calibre',10);
 
