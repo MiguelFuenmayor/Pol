@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class promo_id extends Model
+class Weapon extends Model
 {
     use HasFactory;
 }
