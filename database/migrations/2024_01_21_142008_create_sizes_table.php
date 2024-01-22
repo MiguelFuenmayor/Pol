@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('sizes', function (Blueprint $table) {
             $table->id();
-        
+            $table->string('uniform_type',45);
+            $table->string('t-shirt_size',45);
+            $table->string('pants_size',45);
+            $table->integer('shoes_size');
         });
     }
 
