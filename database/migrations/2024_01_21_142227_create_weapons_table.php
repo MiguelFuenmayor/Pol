@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('weapons', function (Blueprint $table) {
             $table->foreignId('functionary_id')->constrained();
-            $table->string('weapon_tyoe',45);
+            $table->string('weapon_type',45);
             $table->string('weapon_serial',45);
             $table->string('calibre',10);
 
