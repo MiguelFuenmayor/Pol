@@ -53,4 +53,9 @@ class Functionary extends Model
     {
         return $this->hasMany(Image::class);
     }
+
+    public function characteristic()
+    {
+        return $this->hasOne(Characteristic::class);
+    }
 }
