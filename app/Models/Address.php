@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Address extends Model
 {
     use HasFactory;
-    public function user(): BelongsTo
+    public function functionary(): BelongsTo
     {
         return $this->belongsTo(Functionary::class);
     }
