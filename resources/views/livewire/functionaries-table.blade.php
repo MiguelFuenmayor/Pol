@@ -5,7 +5,7 @@
     <!-- INVESTIGAR PQ NO CARGAN LOS ESTILOS CSS -->
 <div class="py-3 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-x-auto">
     <table class="w-full text-sm text-left rtl:text-right table-fixed text-black border-collapse   border-black border-2">
-        <thead class="border-black text-xs uppercase bg-green-900 ">
+        <thead class="border-black text-xs uppercase bg-green-600">
         <tr>
             <th scope="col" class="border-2  border-black py-3">APELLIDOS</th>
             <th scope="col" class="border-2 border-black py-3">NOMBRES</th>
