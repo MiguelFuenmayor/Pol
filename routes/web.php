@@ -18,7 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/functionaries-table',FunctionariesTable::class)->name('functionaries-home');
+Route::get('/functionaries-table',FunctionariesTable::class)->name('functionaries-home')->middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+]);
 
 Route::middleware([
     'auth:sanctum',
