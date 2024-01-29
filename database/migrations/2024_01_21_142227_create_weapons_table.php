@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('weapon_type',45);
             $table->string('weapon_serial',45);
             $table->string('calibre',10);
+            $table->timestamps();
 
         });
     }

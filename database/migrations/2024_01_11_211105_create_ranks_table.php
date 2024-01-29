@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('ranks', function (Blueprint $table) {
             $table->id();
             $table->string('name',45);
-            $table->string('symbol',45);
+            $table->string('symbol_id',45);
         });
     }
 

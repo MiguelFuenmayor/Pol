@@ -17,9 +17,8 @@ class WeaponFactory extends Factory
     public function definition(): array
     {
         return [
-            "functionary_id" => $this->faker->randomNumber(2,true),
             "weapon_type"=>$this->faker->word(),
-            "weapon_serial"=>$this->faker->randomNumber(10,true),
+            "weapon_serial"=>$this->faker->randomNumber(4,true),
             "calibre"=>$this->faker->randomElement(['9mm','15mm','0.50p'])
         ];
     }

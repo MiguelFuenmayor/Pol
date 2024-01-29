@@ -2,6 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Rank;
+use App\Models\Promo;
+use App\Models\Status;
+use App\Models\Dependency;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,16 +23,16 @@ class FunctionaryFactory extends Factory
         return [
             "surnames"=>$this->faker->lastName(),
             "names"=>$this->faker->firstName(),
-            "age"=>$this->faker->randomNumber(2),
+            "age"=>$this->faker->randomNumber(2,true),
             "gender"=>$this->faker->randomElement([1,2]),
             "identity_document"=>$this->faker->randomNumber(9,true),
             "credential"=>$this->faker->randomNumber(9,true),
-            "start_date"=>$this->faker->date('d-m-Y'),
-            "end_date"=>$this->faker->date('d-m-Y'),
-            "promo_id"=>$this->faker->randomElement([1,2,3,4]),
-            "status_id"=>$this->faker->randomElement([1,2,3,4]) ,
-            "rank_id"=>$this->faker->randomElement([1,2,3,4]) ,
-            "dependency_id"=>$this->faker->randomElement([1,2,3,4])
+            "start_date"=>$this->faker->date('Y-m-d'),
+            "end_date"=>$this->faker->date('Y-m-d'),
+            "promo_id"=>Promo::all()->random()->id,
+            "status_id"=>Status::all()->random()->id ,
+            "rank_id"=>Rank::all()->random()->id ,
+            "dependency_id"=>Dependency::all()->random()->id
         ];
     }
 }

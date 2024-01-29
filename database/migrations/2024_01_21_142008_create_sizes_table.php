@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sizes', function (Blueprint $table) {
-            $table->id();
+            $table->foreignId('functionary_id')->constrained();
             $table->string('uniform_type',45);
             $table->string('t-shirt_size',45);
             $table->string('pants_size',45);

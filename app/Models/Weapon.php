@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Weapon extends Model
 {
+    
     use HasFactory;
     public function functionary(): BelongsTo
     {

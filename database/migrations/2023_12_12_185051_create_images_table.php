@@ -15,8 +15,8 @@ return new class extends Migration
             $table->string('url');
             $table->integer('imageable_id');
             $table->string('imageable_type');
-            
-            $table->primary(['imageable_id','imageable_type']);
+            $table->string('concept');
+            $table->primary(['imageable_id','imageable_type','concept']);
         });
     }
 

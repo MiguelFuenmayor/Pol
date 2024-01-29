@@ -25,7 +25,7 @@ return new class extends Migration
             $table->foreignId('status_id')->constrained();
             $table->foreignId('rank_id')->constrained();
             $table->foreignId('dependency_id')->constrained();
-    
+            $table->timestamps();
         });
     }
 
