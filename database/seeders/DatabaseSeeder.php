@@ -4,10 +4,17 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\category;
-use App\Models\Post;
 use App\Models\Tag;
+use App\Models\Rank;
+use App\Models\Promo;
+use App\Models\Charge;
+use App\Models\Status;
+use App\Models\Category;
+use App\Models\Dependency;
+use App\Models\Functionary;
 use Illuminate\Database\Seeder;
+use Database\Seeders\PostSeeder;
+use Database\Seeders\UserSeeder;
 use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
@@ -17,11 +24,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        //NO ESTA GENERANDO IMAGENES
         Storage::makeDirectory('posts');
+        Storage::makeDirectory('functionaries');
         $this->call(UserSeeder::class);
-        category::factory(4)->create();
+        Category::factory(4)->create();
         Tag::factory(5)->create();
-        
+        Promo::factory(4)->create();
+        Status::factory(4)->create();
+        Rank::factory(4)->create();
+        Dependency::factory(4)->create();
+        Charge::factory(4)->create();
+        $this->call(FunctionarySeeder::class);
         $this->call(PostSeeder::class);
+
+        
     }
 }

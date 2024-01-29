@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Image extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     public function imageable() {
         return $this->morphTo();
     }

@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('height_in_cm',20);
             $table->string('hair_color',20);
             $table->string('skin_color',20);
-            $table->string('weight_in_kg');
-            $table->string('other_characteristics',70);
+            $table->string('weight_in_kg',25);
+            $table->string('other_characteristics',255);
         });
     }
 

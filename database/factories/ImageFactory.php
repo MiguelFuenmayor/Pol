@@ -18,7 +18,7 @@ class ImageFactory extends Factory
     {
         return [
             'url' => 'functionaries/' . $this->faker->image(
-                'public/storage/posts', 
+                'public/storage/functionaries', 
                 640, //ancho
                 480, //alto
                 null, //categoría

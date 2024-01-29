@@ -14,12 +14,13 @@ class PostSeeder extends Seeder
      */
     public function run(): void
     {
-        $posts= Post::factory(100)->create();
+        $posts= Post::factory(1)->create();
         foreach ($posts as $Post) {
-           Image::factory(1)->create([
+           /* Image::factory(1)->create([
+            "concept"=> "test",
             "imageable_id"=> $Post->id,
             "imageable_type" => Post::class
-           ]); 
+           ]);  */
         }        
     }
 }
