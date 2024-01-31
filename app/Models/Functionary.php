@@ -1,42 +1,60 @@
 <?php
 
 namespace App\Models;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Functionary extends Model
 {
     use HasFactory;
+    protected function names(): Attribute
+    {
+        return Attribute::make(
+            get: fn (string $value) => strtoupper($value),
+        );
+    }
+    protected function surnames(): Attribute
+    {
+        return Attribute::make(
+            get: fn (string $value) => strtoupper($value),
+        );
+    }
     public function address(): HasOne
     {
         return $this->hasOne(Address::class);
     }
-
-    public function promo(): HasOne
+    public function gender():BelongsTo
     {
-        return $this->hasOne(Promo::class);
+        return $this->BelongsTo(Gender::class);
+    }
+    public function promo(): BelongsTo
+    {
+        return $this->BelongsTo(Promo::class);
     }
 
-    public function rank(): HasOne
+    public function rank(): BelongsTo
     {
-        return $this->hasOne(Rank::class);
+        return $this->BelongsTo(Rank::class);
     }
 
     public function weapon():HasOne
     {
         return $this->hasOne(Weapon::class);
     }
-    public function status(): HasOne
+    public function status(): BelongsTo
     {
-        return $this->hasOne(Status::class);
+        return $this->BelongsTo(Status::class);
     }
 
-    public function dependency(): HasOne
+    public function dependency(): BelongsTo
     {
-        return $this->hasOne(Dependency::class);
+        return $this->BelongsTo(Dependency::class);
     }
 
     public function size(): HasOne

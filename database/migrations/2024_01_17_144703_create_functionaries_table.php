@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('surnames',45);
             $table->string('names',45);
             $table->integer('age');
-            $table->enum('gender',[1,2]);
+            $table->foreignId('gender_id')->constrained();
             $table->integer('identity_document');
             $table->integer('credential');
             $table->date('start_date');

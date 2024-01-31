@@ -32,7 +32,7 @@ class FunctionarySeeder extends Seeder
                     "functionary_id" => $functionary->id
                 ]
             );
-            
+
             Size::factory(1)->create(
                 [
                     "functionary_id" => $functionary->id
@@ -47,23 +47,22 @@ class FunctionarySeeder extends Seeder
             for ($i = 1; $i > 3; $i++) {
                 switch ($i) {
                     case 1:
-                        $concept="Functionary";
+                        $concept = "Functionary";
                         break;
                     case 2:
-                        $concept="front_credential";
+                        $concept = "front_credential";
                         break;
                     case 3:
-                        $concept="back_credential";
+                        $concept = "back_credential";
                         break;
                 }
                 Image::factory(1)->create([
                     "concept" => $concept,
                     "imageable_id" => $functionary->id,
                     "imageable_type" => Functionary::class
-                ]); 
-
+                ]);
             }
-            $charge=random_int(1,4);
+            $charge = random_int(1, 4);
             $functionary->charges()->attach($charge);
         }
     }

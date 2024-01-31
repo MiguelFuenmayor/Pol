@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         Storage::makeDirectory('posts');
         Storage::makeDirectory('functionaries');
         $this->call(UserSeeder::class);
+        $this->call(GenderSeeder::class);
         Category::factory(4)->create();
         Tag::factory(5)->create();
         Promo::factory(4)->create();

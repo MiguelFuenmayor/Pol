@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Rank;
 use App\Models\Promo;
+use App\Models\Gender;
 use App\Models\Status;
 use App\Models\Dependency;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -24,7 +25,7 @@ class FunctionaryFactory extends Factory
             "surnames"=>$this->faker->lastName(),
             "names"=>$this->faker->firstName(),
             "age"=>$this->faker->randomNumber(2,true),
-            "gender"=>$this->faker->randomElement([1,2]),
+            "gender_id"=>Gender::all()->random()->id,
             "identity_document"=>$this->faker->randomNumber(9,true),
             "credential"=>$this->faker->randomNumber(9,true),
             "start_date"=>$this->faker->date('Y-m-d'),

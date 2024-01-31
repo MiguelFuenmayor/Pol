@@ -17,8 +17,8 @@ class AddressFactory extends Factory
     public function definition(): array
     {
         return [
-            
-            "address"=>$this->faker->paragraph()
+            "functionary_id"=> NULL ,
+            "address"=>$this->faker->randomElement(['Los Haticos, Barrio Chocolate','Domitila Flores, Los Cactus','Villa Chinita, casa 107G'])
         ];
     }
 }
