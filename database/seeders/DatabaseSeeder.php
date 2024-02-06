@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
         //NO ESTA GENERANDO IMAGENES
         Storage::makeDirectory('posts');
         Storage::makeDirectory('functionaries');
-        $this->call(UserSeeder::class);
+        
         $this->call(GenderSeeder::class);
         Category::factory(4)->create();
         Tag::factory(5)->create();
@@ -36,8 +36,11 @@ class DatabaseSeeder extends Seeder
         Rank::factory(4)->create();
         Dependency::factory(4)->create();
         Charge::factory(4)->create();
+        $this->call(UserSeeder::class);
         $this->call(FunctionarySeeder::class);
+        
         $this->call(PostSeeder::class);
+        
 
         
     }

@@ -2,42 +2,97 @@
     @slot('header')
         TABLA DE FUNCIONARIOS
     @endslot
-    <!-- INVESTIGAR PQ NO CARGAN LOS ESTILOS CSS -->
-    <div class="py-3 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-x-">
-        <table
-            class=" w-full text-sm text-left rtl:text-right table-fixed text-black border-collapse   border-black border-2">
-            <thead class="border-black text-xs uppercase bg-green-600">
-                <tr class="text-center">
-                    <th scope="col" class="border-2  border-black py-3">APELLIDOS</th>
-                    <th scope="col" class="border-2 border-black py-3">NOMBRES</th>
-                    <th scope="col" class="border-2 border-black py-3">CREDENCIAL</th>
-                    <th scope="col" class="border-2 border-black py-3">DEPENDENCIA</th>
-                    <th scope="col" class="border-2 border-black py3">EDAD</th>
-                    <th scope="col" class="border-2 border-black py-3">GENERO</th>
-                    <th scope="col" class="border-2 border-black py-3">CEDULA</th>
-                    <th scope="col" class="border-2 border-black py-3">PROMO</th>
-                    <th scope="col" class="border-2 border-black py-3">ESTADO</th>
-                    <th scope="col" class="border-2 border-black py-3">RANGO</th>
-                    <th scope="col" class="border-2 border-black py-3">ARMA</th>        
-            </tr>
-            </thead>
-            <tbody scope="row" class=" border border-black ">
-                @foreach ($functionaries as $functionary)
-                    <tr wire:key="{{ $functionary->id }}">
-                        <td class="border-black border-2">{{$functionary->surnames}}</td>
-                        <td class="border-black border-2">{{$functionary->names}}</td>
-                        <td class="border-black border-2">{{$functionary->credential}}</td>
-                        <td class="border-black border-2">{{$functionary->dependency->name}}</td>
-                        <td class="border-2 border-black py-3">{{$functionary->age}}</td>
-                        <td class="border-2 border-black py-3">{{$functionary->gender->gender}}</td>
-                        <td class="border-2 border-black py-3">{{$functionary->identity_document}}</td>
-                        <td class="border-2 border-black py-3">{{$functionary->promo->promo}}</td>
-                        <td class="border-2 border-black py-3">{{$functionary->status->name}}</td>
-                        <td class="border-2 border-black py-3">{{$functionary->rank->name}}</td>
-                        <td class="border-2 border-black py-3">{{$functionary->weapon->weapon_type}}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+    <!-- CREAR FUNCIONES PARA ORDENAR POR DATOS, AGREGAR BARRA DE BUSQUEDA Y CREAR NUEVAS SECCIONES PARA
+    VER LOS CAMPOS Y ESTADISTICAS AL RESPECTO, ADEMAS DE QUE CLIQUEANDO UN REGISTRO SE VEA TODA LA INFORMACION
+    DEL FUNCIONARIO, PERO TAMBIEN QUE AL CLIQUEAR UN CAMPO IMPORTANTE (COMO ARMA, ESTADO, PROMO, GENERO, EDAD,
+    DEPENDENCIA) SE ABRA UN GRAFICO RELACIONADO -->
+    
+    <!--TABLA DE funcionarios-->
+    <div>
+        <section class="mt-10">
+            <div class="max-w-screen-xl px-4 mx-auto lg:px-12">
+                <!-- Start coding here -->
+                <div class="relative overflow-hidden bg-white shadow-md sm:rounded-lg">
+                    <div class="flex items-center justify-between p-4 d">
+                        <div class="flex">
+                            <div class="relative w-full">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <svg aria-hidden="true" class="w-5 h-5 text-gray-500"
+                                        fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <input  type="text"
+                                    class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 "
+                                    placeholder="Search" required="">
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <div class="flex items-center space-x-3">
+                                <label class="w-40 text-sm font-medium text-gray-900">User Type :</label>
+                                <select 
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                                    <option value="">All</option>
+                                    <option value="0">User</option>
+                                    <option value="1">Admin</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left text-gray-500 ">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-4 py-3">Apellidos</th>
+                                    <th scope="col" class="px-4 py-3">Nombres</th>
+                                    <th scope="col" class="px-4 py-3">Rango</th>
+                                    <th scope="col" class="px-4 py-3">Dependencia</th>
+                                    <th scope="col" class="px-4 py-3">Arma</th>
+                                    <th scope="col" class="px-4 py-3">
+                                        <span class="sr-only">Actions</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($functionaries as $functionary)
+                                <tr class="border-b ">
+                                    <th scope="row"
+                                        class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap ">
+                                        {{$functionary->surnames}}</th>
+                                    <td class="px-4 py-3">{{$functionary->names}}</td>
+                                    <td class="px-4 py-3 text-green-500">
+                                     {{$functionary->rank->name}}   </td>
+                                    <td class="px-4 py-3">{{$functionary->dependency->name}}</td>
+                                    <td class="px-4 py-3">{{$functionary->weapon->weapon_type}}</td>
+                                    <td class="flex items-center justify-end px-4 py-3">
+                                        <button class="px-3 py-1 text-white bg-red-500 rounded">X</button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+    
+                    <div class="px-3 py-4">
+                        <div class="flex ">
+                            <div class="flex items-center mb-3 space-x-4">
+                                <label class="w-32 text-sm font-medium text-gray-900">Per Page</label>
+                                <select
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
     </div>
 </div>

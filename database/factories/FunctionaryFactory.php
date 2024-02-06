@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Rank;
+use App\Models\User;
 use App\Models\Promo;
 use App\Models\Gender;
 use App\Models\Status;
@@ -30,6 +31,7 @@ class FunctionaryFactory extends Factory
             "credential"=>$this->faker->randomNumber(9,true),
             "start_date"=>$this->faker->date('Y-m-d'),
             "end_date"=>$this->faker->date('Y-m-d'),
+            
             "promo_id"=>Promo::all()->random()->id,
             "status_id"=>Status::all()->random()->id ,
             "rank_id"=>Rank::all()->random()->id ,

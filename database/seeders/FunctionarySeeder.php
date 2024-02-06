@@ -3,12 +3,13 @@
 namespace Database\Seeders;
 
 use App\Models\Size;
+use App\Models\User;
 use App\Models\Image;
+use App\Models\Charge;
 use App\Models\Weapon;
 use App\Models\Address;
 use App\Models\Functionary;
 use App\Models\Characteristic;
-use App\Models\Charge;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -19,8 +20,15 @@ class FunctionarySeeder extends Seeder
      */
     public function run(): void
     {
-
-        $functionaries = Functionary::factory(10)->create();
+        
+        foreach(User::all() as $id){
+            $functionaries = Functionary::factory(1)->create(
+                [
+                    "user_id"=> $id->id
+                ]
+            );
+        }
+        $functionaries=Functionary::all();
         foreach ($functionaries as $functionary) {
             Address::factory(1)->create(
                 [

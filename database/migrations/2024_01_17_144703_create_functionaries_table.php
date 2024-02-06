@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('credential');
             $table->date('start_date');
             $table->date('end_date');
+            $table->foreignId('user_id')->constrained();
             $table->foreignId('promo_id')->constrained();
             $table->foreignId('status_id')->constrained();
             $table->foreignId('rank_id')->constrained();

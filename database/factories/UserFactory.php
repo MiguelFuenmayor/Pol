@@ -4,9 +4,10 @@ namespace Database\Factories;
 
 use App\Models\Team;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Functionary;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -21,9 +22,12 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
+
             'email' => $this->faker->unique()->safeEmail(),
             'password' => bcrypt('12345678'), // password
+            'is_admin'=>$this->faker->boolean(10),
+        
+            
         ];
     }
 
