@@ -24,12 +24,14 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <input  type="text"
-                                    class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 "
+                                <input
+                                    wire:model.live='search'
+                                  type="text"
+                                    class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg pr-100 bg-gray-50 focus:ring-primary-500 focus:border-primary-500 "
                                     placeholder="Search" required="">
                             </div>
                         </div>
-                        <div class="flex space-x-3">
+                        {{-- <div class="flex space-x-3">
                             <div class="flex items-center space-x-3">
                                 <label class="w-40 text-sm font-medium text-gray-900">User Type :</label>
                                 <select 
@@ -39,7 +41,7 @@
                                     <option value="1">Admin</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-sm text-left text-gray-500 ">
@@ -50,6 +52,9 @@
                                     <th scope="col" class="px-4 py-3">Rango</th>
                                     <th scope="col" class="px-4 py-3">Dependencia</th>
                                     <th scope="col" class="px-4 py-3">Arma</th>
+                                    <th scope="col" class="px-4 py-3">Sexo</th>
+                                    <th scope="col" class="px-4 py-3">Cedula</th>
+                                    <th scope="col" class="px-4 py-3">Credencial</th>
                                     <th scope="col" class="px-4 py-3">
                                         <span class="sr-only">Actions</span>
                                     </th>
@@ -66,8 +71,11 @@
                                      {{$functionary->rank->name}}   </td>
                                     <td class="px-4 py-3">{{$functionary->dependency->name}}</td>
                                     <td class="px-4 py-3">{{$functionary->weapon->weapon_type}}</td>
+                                    <td class="px-4 py-3">{{$functionary->gender->gender}}</td>
+                                    <td class="px-4 py-3">{{$functionary->identity_document}}</td>
+                                    <td class="px-4 py-3">{{$functionary->credential}}</td>
                                     <td class="flex items-center justify-end px-4 py-3">
-                                        <button class="px-3 py-1 text-white bg-red-500 rounded">X</button>
+                                        <button class="px-5 py-2 text-white bg-blue-600">Info</button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -79,16 +87,17 @@
                         <div class="flex ">
                             <div class="flex items-center mb-3 space-x-4">
                                 <label class="w-32 text-sm font-medium text-gray-900">Per Page</label>
-                                <select
+                                <select wire:model.live='perPage'
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                    <option value="5">5</option>
-                                    <option value="10">10</option>
+                                    <option value="5">5</option>                                    <option value="10">10</option>
+                                    <option value="15">15</option>
                                     <option value="20">20</option>
                                     <option value="50">50</option>
                                     <option value="100">100</option>
                                 </select>
                             </div>
                         </div>
+                            {{$functionaries->links()}}
                     </div>
                 </div>
             </div>

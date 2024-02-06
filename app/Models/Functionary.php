@@ -72,8 +72,21 @@ class Functionary extends Model
         return $this->hasMany(Image::class);
     }
 
-    public function characteristic()
+    public function characteristic(): HasOne
     {
         return $this->hasOne(Characteristic::class);
+    }
+    public function user():BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function scopeSearch ($query, $value) 
+    {
+
+        
+        $query->where('names', 'like',
+        "%{$value}")->orWhere('surnames', 'like', "%{$value}%");
+
+
     }
 }

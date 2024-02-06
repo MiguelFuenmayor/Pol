@@ -10,11 +10,12 @@ use Livewire\WithPagination;
 class FunctionariesTable extends Component
 {
     use WithPagination;
-    public $functionaries;
+    public $perPage=15;
+    public $searchColumns=[];
     public $search='';
 
     public function mount(){
-        $this->functionaries = Functionary::all();
+        
     }
     public function search(){
         
@@ -24,6 +25,8 @@ class FunctionariesTable extends Component
     {
        
         
-        return view('livewire.functionaries-table',);
+        return view('livewire.functionaries-table',[
+            'functionaries' => Functionary::search($this->search)->paginate($this->perPage)
+        ]);
     }
 }
