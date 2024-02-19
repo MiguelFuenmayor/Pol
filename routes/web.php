@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Functionary;
 use App\Livewire\FunctionariesTable;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ Route::get('/functionaries-table',FunctionariesTable::class)->name('functionarie
     config('jetstream.auth_session'),
     'verified'
 ]);
+Route::get('/functionary',Functionary::class)->name('functionary_info');
 
 Route::middleware([
     'auth:sanctum',

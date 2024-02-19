@@ -42,7 +42,7 @@
                                 </select>
                             </div>
                         </div> --}}
-                        <div class="flex space-x-3">
+                        {{-- <div class="flex space-x-3">
                             <div x-data="{open : false}" class="flex items-center space-x-3">
                                 <label @click= "open = ! open"  class="bg-gray-50 border border-gray-300  rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5  w-40 text-sm font-medium text-gray-900">Buscar en:</label>
                                 <span x-show="open" @click.away="open = false" @close.stop="open = false"
@@ -52,7 +52,7 @@
                                     <label >equis </label>
                             </span>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-sm text-left text-gray-500 ">
@@ -86,7 +86,9 @@
                                     <td class="px-4 py-3">{{$functionary->identity_document}}</td>
                                     <td class="px-4 py-3">{{$functionary->credential}}</td>
                                     <td class="flex items-center justify-end px-4 py-3">
-                                        <button class="px-5 py-2 text-white bg-blue-600">Info</button>
+                                        <a wire:navigate href="/functionary" >
+                                            <button class="px-5 py-2 text-white bg-blue-600">Info</button>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

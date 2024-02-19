@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Functionary;
+use Livewire\Attributes\Url;
 use Livewire\WithPagination;
 use Livewire\Attributes\Title;
 use App\Models\FunctionariesDataTable;
@@ -18,8 +19,11 @@ class FunctionariesTable extends Component
 
     public function mount(){
         $this->perPage=15;
-        $this->columns=['names','surnames'];
+        $this->columns=['names','surnames','rank','dependency','weapon_type','gender','identity_document','credential'];
         $this->search='';
+    }
+    public function updatingSearch(){
+        $this->resetPage();
     }
     public function columns(){
          array_push($this->column,$this->new_columns);
