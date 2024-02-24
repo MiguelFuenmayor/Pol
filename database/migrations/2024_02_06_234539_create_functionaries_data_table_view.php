@@ -14,7 +14,7 @@ return new class extends Migration
     {
         
             DB::statement("CREATE OR REPLACE VIEW functionaries_data_table 
-            AS SELECT functionaries.surnames AS 'surnames',
+            AS SELECT functionaries.id AS 'id', functionaries.surnames AS 'surnames',
             functionaries.names AS 'names', functionaries.credential AS 'credential',
             functionaries.identity_document AS 'identity_document',
             dependencies.name AS 'dependency',

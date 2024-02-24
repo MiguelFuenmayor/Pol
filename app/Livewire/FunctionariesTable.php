@@ -18,6 +18,10 @@ class FunctionariesTable extends Component
     public $search;
     public $page;
 
+    public function functionary($functionary){
+        redirect('functionary')->with($functionary);
+        
+    }
     public function mount(){
         $this->perPage=15;
         $this->columns=['names','surnames','rank','dependency','weapon_type','gender','identity_document','credential'];
