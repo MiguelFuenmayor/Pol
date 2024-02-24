@@ -86,7 +86,9 @@
                                     <td class="px-4 py-3">{{$functionary->identity_document}}</td>
                                     <td class="px-4 py-3">{{$functionary->credential}}</td>
                                     <td class="flex items-center justify-end px-4 py-3">
-                                        <button class="px-5 py-2 text-white bg-blue-600">Info</button>
+                                        <a wire:navigate href="/functionary" >
+                                            <button class="px-5 py-2 text-white bg-blue-600">Info</button>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
