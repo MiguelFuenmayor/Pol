@@ -15,14 +15,22 @@ class FunctionariesTable extends Component
     public $columns;
     public $new_columns;
     public $search;
+    public $page;
 
     public function mount(){
         $this->perPage=15;
         $this->columns=['names','surnames'];
         $this->search='';
+        $this->page;
     }
+
+    
     public function columns(){
          array_push($this->column,$this->new_columns);
+    }
+    public function updatedSearch()
+    {
+        $this->resetPage();
     }
 
     public function render()

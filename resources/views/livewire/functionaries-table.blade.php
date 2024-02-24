@@ -42,7 +42,7 @@
                                 </select>
                             </div>
                         </div> --}}
-                        <div class="flex space-x-3">
+                        {{-- <div class="flex space-x-3">
                             <div x-data="{open : false}" class="flex items-center space-x-3">
                                 <label @click= "open = ! open"  class="bg-gray-50 border border-gray-300  rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5  w-40 text-sm font-medium text-gray-900">Buscar en:</label>
                                 <span x-show="open" @click.away="open = false" @close.stop="open = false"
@@ -52,7 +52,7 @@
                                     <label >equis </label>
                             </span>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-sm text-left text-gray-500 ">
