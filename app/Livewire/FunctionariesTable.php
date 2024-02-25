@@ -18,8 +18,8 @@ class FunctionariesTable extends Component
     public $search;
     public $page;
 
-    public function functionary($functionary){
-        redirect('functionary')->with($functionary);
+    public function functionary($id){
+        $this->redirectRoute('functionary-info',['id'=> $id]);
         
     }
     public function mount(){
@@ -40,9 +40,7 @@ class FunctionariesTable extends Component
     }
 
     public function render()
-    {
-       
-        
+    {   
         return view('livewire.functionaries-table',[
             'functionaries' => FunctionariesDataTable::search($this->search,$this->columns)->paginate($this->perPage)
         ]);
