@@ -24,7 +24,7 @@ Route::get('/functionaries-table',FunctionariesTable::class)->name('functionarie
     config('jetstream.auth_session'),
     'verified'
 ]);
-Route::get('/functionary/{id}',Functionary::class)->name('functionary-info');
+Route::get('/functionary',Functionary::class)->name('functionary-info');
 
 Route::middleware([
     'auth:sanctum',

@@ -20,7 +20,6 @@ class FunctionariesTable extends Component
 
     public function functionary($id){
         $this->redirectRoute('functionary-info',['id'=> $id]);
-        
     }
     public function mount(){
         $this->perPage=15;
