@@ -97,15 +97,23 @@ class Functionary extends Model
         return Gender::find($this->gender_id,['gender'])->gender;
         
     }
-    public function getThis($camp){
-        return $camp::find($this->$camp.'_id',['name'])->name;
-    }
+    // public function getThis($camp){
+    //     return $camp::find($this->$camp.'_id',['name'])->name;
+    // }
 
-    public function getUser(){}
+    public function getUser(){
+        return User::find($this->user_id,['email'])->email;
+    }
     public function getPromo(){
         return Promo::find($this->promo_id,['promo'])->promo;
     }
-    public function getStatus(){}
-    public function getRank(){}
-    public function getDependency(){}
+    public function getStatus(){
+        return Status::find($this->status_id,['name'])->name;
+    }
+    public function getRank(){
+        return Rank::find($this->rank_id,['name'])->name;
+    }
+    public function getDependency(){
+        return Dependency::find($this->dependency_id,['name'])->name;
+    }
 }

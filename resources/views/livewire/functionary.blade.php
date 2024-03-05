@@ -25,6 +25,16 @@
 <p class="col-start-3 row-start-1 ml-9" >
     PROMO:   {{$functionary->getPromo()}}   
 </p>
+<p class="col-start-3 row-start-2 ml-9" >
+    STATUS:   {{$functionary->getStatus()}}   
+</p>
+<p class="col-start-3 row-start-3 ml-9" >
+    RANGO:   {{$functionary->getRank()}}   
+</p>
+<p class="col-start-3 row-start-4 ml-9" >
+    DEPENDENCIA:   {{$functionary->getDependency()}}   
+</p>
+
     </div>
 </div>
  
