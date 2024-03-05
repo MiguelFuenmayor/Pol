@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Rank;
+use App\Models\Promo;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -13,6 +15,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Functionary extends Model
 {
     use HasFactory;
+    
+    public $incrementing= false;
     protected function names(): Attribute
     {
         return Attribute::make(
@@ -89,4 +93,19 @@ class Functionary extends Model
 
 
     }
+    public function getGender(){
+        return Gender::find($this->gender_id,['gender'])->gender;
+        
+    }
+    public function getThis($camp){
+        return $camp::find($this->$camp.'_id',['name'])->name;
+    }
+
+    public function getUser(){}
+    public function getPromo(){
+        return Promo::find($this->promo_id,['promo'])->promo;
+    }
+    public function getStatus(){}
+    public function getRank(){}
+    public function getDependency(){}
 }
