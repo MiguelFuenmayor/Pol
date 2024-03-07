@@ -33,6 +33,7 @@
                 </header>
             @endif
             <main>
+                
                 {{ $slot }}
             </main>
         </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Functionary;
+use App\Livewire\FunctionaryCreate;
 use App\Livewire\FunctionariesTable;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//deberia unir todas las rutas en una por medio de un controlador que redireccione a los componentes livewire
+ Route::get('/functionary-create', FunctionaryCreate::class)->name('functionary-create');
 
 Route::get('/functionaries-table',FunctionariesTable::class)->name('functionaries-home')->middleware([
     'auth:sanctum',

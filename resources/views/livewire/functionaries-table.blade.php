@@ -12,6 +12,7 @@
         <section class="mt-10">
             <div class="max-w-screen-xl px-4 mx-auto lg:px-12">
                 <!-- Start coding here -->
+            
                 <div class="relative overflow-hidden bg-white shadow-md sm:rounded-lg">
                     <div class="flex items-center justify-between p-4 d">
                         <div class="flex">
@@ -31,6 +32,10 @@
                                     placeholder="Search" required="">
                             </div>
                         </div>
+                        
+                        <a href="" wire:navigate wire:click.prevent='create'>
+                            <button class="px-5 py-2 text-white bg-red-600">Añadir funcionario</button>
+                        </a>
                         {{-- <div class="flex space-x-3">
                             <div class="flex items-center space-x-3">
                                 <label class="w-40 text-sm font-medium text-gray-900">User Type :</label>
@@ -86,7 +91,7 @@
                                     <td class="px-4 py-3">{{$functionary->identity_document}}</td>
                                     <td class="px-4 py-3">{{$functionary->credential}}</td>
                                     <td class="flex items-center justify-end px-4 py-3">
-                                        <a wire:navigate href="{{route('functionary-info', ['id' => 1])}}">
+                                        <a wire:navigate wire:click.prevent='functionaryInfo({{$functionary->id}})' href="">
                                             <button class="px-5 py-2 text-white bg-blue-600">Info</button>
                                         </a>
                                     </td>

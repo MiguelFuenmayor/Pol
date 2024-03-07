@@ -27,6 +27,13 @@ class FunctionariesTable extends Component
         $this->search='';
         $this->page;
     }
+
+    public function functionaryInfo($id){
+        $this->redirectRoute('functionary-info',['id'=>$id]);
+    }
+    public function create(){
+        $this->redirectRoute('functionary-create');
+    }
     public function updatingSearch(){
         $this->resetPage();
     }
