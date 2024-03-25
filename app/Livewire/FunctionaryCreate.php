@@ -19,12 +19,15 @@ class FunctionaryCreate extends Component
     #[Validate('min:3', message: 'Ingrese un nombre con mas de 3 caracteres')]
     public $names;
     #[Validate('required', message:'Debe ingresar un apellido')]
+    #[Validate('min:3', message: 'Ingrese un apellido con mas de 3 caracteres')]
     public $surnames;
     #[Validate('required', message:'Debe ingresar una edad')]
     public $age;
     // #[Validate('required', message:'Seleccione un genero')]
     public $gender_id;
-    #[Validate('required')]
+    #[Validate('required',message:'La cedula es requerida')]
+    #[Validate('regex:/[0-9]{7}/', message: 'Ingrese una cedula de siete(7) digitos, solo numeros')]
+    #[Validate('max:7', message: 'Ingrese una cedula de siete(7) digitos, solo numeros')]
     public $identity_document;
     #[Validate('required')]
     public $credential;
